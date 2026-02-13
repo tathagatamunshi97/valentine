@@ -130,13 +130,34 @@ body {
     border: 1px solid #ddd;
 }
 
-#no-btn {
-    position: relative;
+.please-text {
+    margin-top: 20px;
+    color: var(--midnight);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+.please-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+#dive-deeper-btn {
+    margin-top: 30px;
+    animation: fadeIn 1s ease 1s forwards;
 }
 
 /* Celebration Screen */
 .celebration-content {
-    animation: heartBeat 1.5s infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .big-heart {
@@ -146,21 +167,70 @@ body {
 
 .final-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--rose);
+    margin-bottom: 20px;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-10px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(10px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
 }
 
 @keyframes heartBeat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.1); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.1);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 #confetti-canvas {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div id="particles-js"></div>
-    
+
     <main class="container">
         <!-- Page 1: Landing -->
         <section id="page-1" class="page active">
@@ -31,6 +35,7 @@
                     <button id="yes-btn" class="option-btn yes">Yes</button>
                     <button id="no-btn" class="option-btn no">No</button>
                 </div>
+                <p id="please-msg" class="please-text">Please, Please, Please press Yes!!!</p>
             </div>
         </section>
 
@@ -38,7 +43,8 @@
         <section id="final-screen" class="page">
             <div class="celebration-content">
                 <h1 class="big-heart">❤️</h1>
-                <h2 class="final-title">Yay! I love you!</h2>
+                <h2 class="final-title">You are already my valentine and I love you</h2>
+                <button id="dive-deeper-btn" class="primary-btn hidden">Let's dive deeper into us</button>
                 <canvas id="confetti-canvas"></canvas>
             </div>
         </section>
@@ -47,4 +53,5 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

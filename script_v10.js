@@ -19,38 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const gifts = [
         {
-            title: "Gift 1: Something Sweet",
+            title: "Gift 1: Something sweet",
             direction: "Look where the hidden chocolate bar usually hides... or check the pantry shelf you reach for most!"
         },
         {
-            title: "Gift 2: A Taste of Switzerland",
+            title: "Gift 2: A taste of Switzerland",
             direction: "Brrr! This one is staying cool. Check near the snacks that need a little chill to stay perfect."
         },
         {
-            title: "Gift 3: Somebody to Love",
-            direction: "The final piece of the puzzle isn't a thing, but a feeling. Look behind your favorite pillow or where you rest your head at night."
-        }
-    ];
-
-    let currentGiftIndex = 0;
-    const storyNextBtn = document.getElementById('story-next');
-    const collectGiftsBtn = document.getElementById('collect-gifts-btn');
-    const page4 = document.getElementById('page-4');
-    const giftTitle = document.getElementById('gift-title');
-    const giftDirection = document.getElementById('gift-direction');
-    const giftNextBtn = document.getElementById('gift-next-btn');
-
-    const gifts = [
-        {
-            title: "Gift 1: Something Sweet",
-            direction: "Look where the hidden chocolate bar usually hides... or check the pantry shelf you reach for most!"
-        },
-        {
-            title: "Gift 2: A Taste of Switzerland",
-            direction: "Brrr! This one is staying cool. Check near the snacks that need a little chill to stay perfect."
-        },
-        {
-            title: "Gift 3: Somebody to Love",
+            title: "Gift 3: Somebody to love",
             direction: "The final piece of the puzzle isn't a thing, but a feeling. Look behind your favorite pillow or where you rest your head at night."
         }
     ];
@@ -107,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     });
 
-    // Refined No Button: NO DODGING.
+    // Refined No Button
     noBtn.addEventListener('click', () => {
         noBtn.classList.add('shake');
         setTimeout(() => noBtn.classList.remove('shake'), 500);
@@ -143,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Yes Button: Celebratory transition and reveal "Dive Deeper" button
+    // Yes Button
     yesBtn.addEventListener('click', () => {
         page2.classList.remove('active');
         finalScreen.classList.add('active');
@@ -183,9 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showMoment(index) {
         if (index >= moments.length) {
-            currentMomentIndex = 0;
+            // End of memories - show Gift button
+            storyNextBtn.classList.add('hidden');
+            collectGiftsBtn.classList.remove('hidden');
+            return;
         } else {
             currentMomentIndex = index;
+            storyNextBtn.classList.remove('hidden');
+            collectGiftsBtn.classList.add('hidden');
         }
 
         const moment = moments[currentMomentIndex];
@@ -198,7 +180,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    document.getElementById('story-next').addEventListener('click', () => {
+    storyNextBtn.addEventListener('click', () => {
         showMoment(currentMomentIndex + 1);
+    });
+
+    // Gift Hunt Logic
+    collectGiftsBtn.addEventListener('click', () => {
+        page3.classList.remove('active');
+        page4.classList.add('active');
+        showGift(0);
+    });
+
+    function showGift(index) {
+        if (index >= gifts.length) {
+            giftTitle.innerText = "All Gifts Collected! ❤️";
+            giftDirection.innerText = "You've successfully completed the hunt. I hope these little surprises make your day as bright as you make mine!";
+            giftNextBtn.innerText = "Start Over?";
+            giftNextBtn.onclick = () => window.location.reload();
+
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            return;
+        }
+
+        currentGiftIndex = index;
+        const gift = gifts[index];
+
+        const giftCard = document.querySelector('.gift-card');
+        if (giftCard) {
+            giftCard.style.opacity = '0';
+            giftCard.style.transform = 'scale(0.9)';
+
+            setTimeout(() => {
+                giftTitle.innerText = gift.title;
+                giftDirection.innerText = gift.direction;
+                giftCard.style.opacity = '1';
+                giftCard.style.transform = 'scale(1)';
+
+                if (index >= 0) {
+                    confetti({
+                        particleCount: 40,
+                        spread: 50,
+                        origin: { y: 0.8 }
+                    });
+                }
+            }, 300);
+        }
+    }
+
+    giftNextBtn.addEventListener('click', () => {
+        showGift(currentGiftIndex + 1);
     });
 });

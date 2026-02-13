@@ -20,15 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const gifts = [
         {
             title: "Gift 1: Something sweet",
-            direction: "Look where the hidden chocolate bar usually hides... or check the pantry shelf you reach for most!"
+            direction: "Reach out behind clothes that keep me warm!"
         },
         {
             title: "Gift 2: A taste of Switzerland",
-            direction: "Brrr! This one is staying cool. Check near the snacks that need a little chill to stay perfect."
+            direction: "Brrr! Although Switzerland is in Europe, here it lies beneath China's staple."
         },
         {
-            title: "Gift 3: Somebody to love",
-            direction: "The final piece of the puzzle isn't a thing, but a feeling. Look behind your favorite pillow or where you rest your head at night."
+            title: "Gift 3: Something soft",
+            direction: "The final piece of the puzzle isn't a thing, but a feeling. Reach out to the vacant space where a wardrobe lies without clothes!"
         }
     ];
 

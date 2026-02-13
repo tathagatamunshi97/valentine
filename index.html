@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Valentine's Surprise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <main class="container">
+        <!-- Page 1: Landing -->
+        <section id="page-1" class="page active">
+            <div class="glass-card">
+                <h1 class="title">Hey <span class="highlight">Disha</span>,</h1>
+                <p class="subtitle">Welcome to your Valentine's Day experience.</p>
+                <button id="begin-btn" class="primary-btn">Begin the Journey</button>
+            </div>
+        </section>
+
+        <!-- Page 2: Proposal -->
+        <section id="page-2" class="page">
+            <div class="glass-card">
+                <p class="message-from">A message from <span class="highlight">Tatha</span>:</p>
+                <h2 class="question">Will you be my valentine?</h2>
+                <div class="btn-group">
+                    <button id="yes-btn" class="option-btn yes">Yes</button>
+                    <button id="no-btn" class="option-btn no">No</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Message Overlay -->
+        <section id="final-screen" class="page">
+            <div class="celebration-content">
+                <h1 class="big-heart">❤️</h1>
+                <h2 class="final-title">Yay! I love you!</h2>
+                <canvas id="confetti-canvas"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

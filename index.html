@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Valentine's Surprise</title>
-    <!-- Version 9: Bulletproof Centering & Themed Story -->
-    <link rel="stylesheet" href="style_v9.css">
+    <!-- Version 10: Gift Scavenger Hunt & UI Refinement -->
+    <link rel="stylesheet" href="style_v10.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -63,13 +63,28 @@
                 </div>
                 <div class="story-navigation">
                     <button id="story-next" class="primary-btn">Next Memory</button>
+                    <button id="collect-gifts-btn" class="primary-btn hidden">Collect my gifts</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 4: Gift Scavenger Hunt -->
+        <section id="page-4" class="page">
+            <div class="glass-card gift-card">
+                <div class="gift-icon">🎁</div>
+                <h2 id="gift-title" class="gift-title">Searching for your gifts...</h2>
+                <div class="direction-container">
+                    <p id="gift-direction" class="gift-text"></p>
+                </div>
+                <div class="gift-navigation">
+                    <button id="gift-next-btn" class="primary-btn">I've found it!</button>
                 </div>
             </div>
         </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script src="script_v9.js"></script>
+    <script src="script_v10.js"></script>
 </body>
 
 </html>

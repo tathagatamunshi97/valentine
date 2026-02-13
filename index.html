@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Valentine's Surprise</title>
-    <!-- Version 6: Fixing library and forcing cache reset -->
-    <link rel="stylesheet" href="style_v6.css">
+    <!-- Version 7: Fixing visibility and re-adding particles -->
+    <link rel="stylesheet" href="style_v7.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
 <body>
@@ -50,34 +51,28 @@
             </div>
         </section>
 
-        <!-- Page 3: Our Story -->
-        <section id="page-3" class="page">
-            <div class="story-container">
-                <div class="story-progress-bar">
-                    <!-- Progress bars will be injected by JS -->
-                </div>
-
-                <div class="story-content">
-                    <img id="story-image" src="" alt="Our Memory">
-                    <div class="story-caption-container">
-                        <p id="story-caption"></p>
-                    </div>
-                </div>
-
-                <div class="story-navigation">
-                    <div id="story-prev" class="nav-area left"></div>
-                    <div id="story-next" class="nav-area right"></div>
-                </div>
-
-                <div class="story-controls">
-                    <button id="close-story" class="close-btn">&times;</button>
-                </div>
-            </div>
-        </section>
     </main>
 
+    <!-- Page 3: Our Story (Moved outside main container for full screen) -->
+    <section id="page-3" class="story-mode">
+        <div class="story-container">
+            <div class="story-progress-bar"></div>
+            <div class="story-content">
+                <img id="story-image" src="" alt="Our Memory">
+                <div class="story-caption-container">
+                    <p id="story-caption"></p>
+                </div>
+            </div>
+            <div class="story-navigation">
+                <div id="story-prev" class="nav-area left"></div>
+                <div id="story-next" class="nav-area right"></div>
+            </div>
+            <button id="close-story" class="close-btn">&times;</button>
+        </div>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script src="script_v6.js"></script>
+    <script src="script_v7.js"></script>
 </body>
 
 </html>

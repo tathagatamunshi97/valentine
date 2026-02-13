@@ -57,20 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const moments = [
         {
-            image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070&auto=format&fit=crop",
-            caption: "The day it all began... ❤️"
+            image: "Freshers.jpeg",
+            caption: "When it all began...❤️"
         },
         {
-            image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1974&auto=format&fit=crop",
-            caption: "Every moment with you is a gift ✨"
+            image: "Red Carpet.jpeg",
+            caption: "Life's our red carpet ✨"
         },
         {
-            image: "https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=2074&auto=format&fit=crop",
-            caption: "To many more laughs and adventures together!"
+            image: "Trip.jpeg",
+            caption: "To many more trips and photos together!"
         },
         {
-            image: "https://images.unsplash.com/photo-1516589174184-c685266d430c?q=80&w=1974&auto=format&fit=crop",
-            caption: "You are already my valentine and I Love You !!!"
+            image: "Registry.jpeg",
+            caption: "Each other's Valentine until eternity !!!"
         }
     ];
 

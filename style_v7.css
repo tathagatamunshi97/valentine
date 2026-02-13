@@ -243,28 +243,40 @@ body {
     z-index: 100;
 }
 
-/* Page 3: Our Story */
-.story-container {
+/* Page 3: Our Story - Robust Full Screen */
+.story-mode {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 1000;
+}
+
+.story-mode.active {
+    display: flex;
+}
+
+.story-container {
+    position: relative;
     width: 100%;
     height: 100%;
     background: #000;
     display: flex;
     flex-direction: column;
-    z-index: 200;
 }
 
 .story-progress-bar {
     display: flex;
     gap: 4px;
-    padding: 10px;
+    padding: 15px 10px;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 210;
+    z-index: 1010;
 }
 
 .progress-segment {
@@ -284,36 +296,36 @@ body {
 .story-content {
     flex: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    background: #000;
 }
 
 #story-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    object-fit: contain;
+    /* Better for varying photo sizes */
+    background: #000;
 }
 
 .story-caption-container {
     position: absolute;
-    bottom: 50px;
+    bottom: 0;
     left: 0;
     width: 100%;
-    padding: 30px 20px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 60px 20px 40px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
     color: white;
     text-align: center;
+    z-index: 1015;
 }
 
 #story-caption {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-family: 'Dancing Script', cursive;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    animation: slideUp 0.5s ease;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .story-navigation {
@@ -323,36 +335,29 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    z-index: 220;
+    z-index: 1020;
 }
 
 .nav-area {
     flex: 1;
-    height: 100%;
     cursor: pointer;
 }
 
 .close-btn {
     position: absolute;
-    top: 20px;
+    top: 35px;
     right: 20px;
-    background: none;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     border: none;
     color: white;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 1;
     cursor: pointer;
-    z-index: 230;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    z-index: 1030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

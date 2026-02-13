@@ -7,6 +7,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalScreen = document.getElementById('final-screen');
     const pleaseMsg = document.getElementById('please-msg');
     const deeperBtn = document.getElementById('dive-deeper-btn');
+    const page3 = document.getElementById('page-3');
+    const storyImg = document.getElementById('story-image');
+    const storyCaption = document.getElementById('story-caption');
+    const progressBar = document.querySelector('.story-progress-bar');
+    const closeStory = document.getElementById('close-story');
+
+    const moments = [
+        {
+            image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070&auto=format&fit=crop",
+            caption: "The day it all began... ❤️"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1974&auto=format&fit=crop",
+            caption: "Every moment with you is a gift ✨"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=2074&auto=format&fit=crop",
+            caption: "To many more laughs and adventures together!"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1516589174184-c685266d430c?q=80&w=1974&auto=format&fit=crop",
+            caption: "You are already my valentine and I Love You !!!"
+        }
+    ];
+
+    let currentMomentIndex = 0;
+    let storyInterval;
+    const momentDuration = 5000; // 5 seconds
 
     // Transitions from Landing to Question
     beginBtn.addEventListener('click', () => {
@@ -92,5 +120,85 @@ document.addEventListener('DOMContentLoaded', () => {
             confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
             confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
         }, 250);
+    });
+
+    // Story Logic
+    deeperBtn.addEventListener('click', () => {
+        finalScreen.classList.remove('active');
+        page3.classList.add('active');
+        initStory();
+    });
+
+    function initStory() {
+        currentMomentIndex = 0;
+        renderProgressBars();
+        showMoment(0);
+    }
+
+    function renderProgressBars() {
+        progressBar.innerHTML = '';
+        moments.forEach((_, index) => {
+            const segment = document.createElement('div');
+            segment.className = 'progress-segment';
+            const fill = document.createElement('div');
+            fill.className = 'progress-fill';
+            segment.appendChild(fill);
+            progressBar.appendChild(segment);
+        });
+    }
+
+    function showMoment(index) {
+        clearInterval(storyInterval);
+        if (index >= moments.length) {
+            // End of story - loop back or close
+            currentMomentIndex = 0;
+            initStory();
+            return;
+        }
+
+        currentMomentIndex = index;
+        const moment = moments[index];
+        storyImg.src = moment.image;
+        storyCaption.innerText = moment.caption;
+
+        // Reset all fills
+        const fills = document.querySelectorAll('.progress-fill');
+        fills.forEach((fill, i) => {
+            if (i < index) fill.style.width = '100%';
+            else fill.style.width = '0%';
+        });
+
+        // Animate current fill
+        const currentFill = fills[index];
+        let progress = 0;
+        const step = 100 / (momentDuration / 50); // update every 50ms
+
+        storyInterval = setInterval(() => {
+            progress += step;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(storyInterval);
+                showMoment(currentMomentIndex + 1);
+            }
+            currentFill.style.width = `${progress}%`;
+        }, 50);
+    }
+
+    document.getElementById('story-next').addEventListener('click', () => {
+        showMoment(currentMomentIndex + 1);
+    });
+
+    document.getElementById('story-prev').addEventListener('click', () => {
+        if (currentMomentIndex > 0) {
+            showMoment(currentMomentIndex - 1);
+        } else {
+            showMoment(0);
+        }
+    });
+
+    closeStory.addEventListener('click', () => {
+        clearInterval(storyInterval);
+        page3.classList.remove('active');
+        finalScreen.classList.add('active');
     });
 });

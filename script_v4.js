@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     });
 
-    // Refined No Button: No dodge, just shake and explode
+    // Refined No Button: NO DODGING. Just shake, explode emojis, and show message.
     noBtn.addEventListener('click', () => {
         // Shake logic
         noBtn.classList.add('shake');
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         confetti({
             shapes: [angry, broken, cry],
-            particleCount: 50,
-            spread: 90,
+            particleCount: 60,
+            spread: 100,
             origin: { y: 0.6 },
             colors: ['#ff0000', '#ff69b4', '#3498db']
         });
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Yes Button: Celebratory transition and deeper button
+    // Yes Button: Celebratory transition and reveal "Dive Deeper" button
     yesBtn.addEventListener('click', () => {
         page2.classList.remove('active');
         finalScreen.classList.add('active');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (deeperBtn) {
             setTimeout(() => {
                 deeperBtn.classList.remove('hidden');
-                deeperBtn.classList.add('active');
+                deeperBtn.classList.add('active'); // CSS should handle opacity/fade-in
             }, 1500);
         }
 

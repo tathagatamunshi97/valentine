@@ -13,6 +13,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.querySelector('.story-progress-bar');
     const closeStory = document.getElementById('close-story');
 
+    // Initialize Particles
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ff69b4" },
+                shape: { type: "heart" },
+                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 10, random: true, anim: { enable: true, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: false },
+                move: { enable: true, speed: 2, direction: "top", random: true, straight: false, out_mode: "out", bounce: false }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+    }
+
     const moments = [
         {
             image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070&auto=format&fit=crop",
@@ -125,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Story Logic
     deeperBtn.addEventListener('click', () => {
         finalScreen.classList.remove('active');
+        // page3 now has class .story-mode, we added .active
         page3.classList.add('active');
         initStory();
     });

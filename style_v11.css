@@ -1,0 +1,377 @@
+:root {
+    --lavender: #9370DB;
+    /* Medium Purple/Lavender */
+    --blush: #FF6AC1;
+    /* Vibrant Bluish Pink */
+    --rose: #FF1493;
+    /* Deep Pink */
+    --midnight: #2c1a4d;
+    --glass: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #4B0082 0%, #DDA0DD 50%, #FF1493 100%);
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--midnight);
+    margin: 0;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.page.active {
+    display: flex;
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 10px 32px 0 rgba(31, 38, 135, 0.1);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+.highlight {
+    color: var(--rose);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    width: 100%;
+    text-align: center;
+}
+
+.primary-btn {
+    background: linear-gradient(45deg, var(--rose), var(--blush));
+    border: none;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.primary-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+}
+
+/* Page 2 Styles */
+.message-from {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.question {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.option-btn {
+    padding: 12px 35px;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.option-btn.yes {
+    background: var(--rose);
+    color: white;
+}
+
+.option-btn.no {
+    background: white;
+    color: var(--midnight);
+    border: 1px solid #ddd;
+}
+
+.please-text {
+    margin-top: 20px;
+    color: var(--midnight);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.please-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#dive-deeper-btn {
+    margin-top: 30px;
+}
+
+/* Celebration Screen */
+.celebration-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.big-heart {
+    font-size: 8rem;
+    margin-bottom: 20px;
+}
+
+.final-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--rose);
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Page 3: Our Story - Classic Themed Slider */
+.story-card {
+    min-height: 450px;
+    gap: 20px;
+}
+
+.story-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    font-family: 'Dancing Script', cursive;
+    color: var(--rose);
+    width: 100%;
+    text-align: center;
+}
+
+.story-frame {
+    width: 100%;
+    height: 320px;
+    /* Increased slightly */
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.story-caption-container {
+    padding: 10px 0;
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#story-caption {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--midnight);
+    text-align: center;
+    width: 100%;
+}
+
+.story-navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-10px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(10px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Page 4: Gift Scavenger Hunt */
+.gift-card {
+    min-height: 400px;
+    gap: 25px;
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.gift-icon {
+    font-size: 4rem;
+    animation: heartBeat 2s infinite;
+}
+
+.gift-title {
+    font-size: 2rem;
+    color: var(--rose);
+    font-family: 'Dancing Script', cursive;
+}
+
+.direction-container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    border-left: 5px solid var(--rose);
+}
+
+.gift-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--midnight);
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
